@@ -1,27 +1,31 @@
 //1
+//crear array que almacenará los productos del carrito
 let cart = [];
 
+// Elementos del DOM necesarios para el carrito
 //const cards = document.querySelectorAll('.card');
 const cartItems = document.getElementById('cart-items');
 const btnEmpty = document.getElementById('btn-empty');
 const buttons = document.querySelectorAll('.btn-add');
-
 //const cartIcon = document.querySelector(".cart-icon");
 const cartDropdown = document.querySelector(".cart-dropdown");
 const cartContainer = document.querySelector(".cart-container");
 
+// Evento para los botones de añadir: Obtiene la card y la envía al carrito
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const card = button.closest('.card');
         addToCart(card);
     });
 });
-
+// Extrae información de la card y crea el objeto producto
 function addToCart(card) {
     const image = card.querySelector('img').src;
     const name = card.querySelector('h3').textContent;
     const productPrice = card.querySelector('.card-price').textContent;
+    // Convierte el precio de texto a número
     const price = parseFloat(productPrice.replace('$', ''));
+    // Objeto producto
     const product = { 
         name: name,
         price: price,
@@ -30,7 +34,7 @@ function addToCart(card) {
     };
     addProduct(product);
 }
-
+// Verifica si producto ya existe en el carrito: Si existe aumenta cantidad, si no lo agrega
 function addProduct(product) {
   let existing =false;
   cart.forEach((item) => {    
@@ -42,12 +46,12 @@ function addProduct(product) {
     if (!existing) {
         cart.push(product);
     }
-  renderCart();
+  renderCart(); // Actualiza la vista
 }
 
-
+// Renderiza dinámicamente el carrito en el HTML
 function renderCart() {    
-    cartItems.innerHTML = '';
+    cartItems.innerHTML = ''; // Limpia contenido previo
     cart.forEach((item) => {
         const carritow = document.createElement('tr');
         carritow.innerHTML = `
@@ -61,31 +65,32 @@ function renderCart() {
 
     console.log(cart);
 }
-
+// Vaciar completamente el carrito
 btnEmpty.addEventListener('click', () => {
     cart = [];
     renderCart();
     cartDropdown.style.display = "none";
 });
-
+// Mostrar carrito cuando el mouse se pone encima (si sí tiene productos)
 cartContainer.addEventListener("mouseenter", () => {
     if (cart.length > 0) {
         cartDropdown.style.display = "block";
     }
 });
-
+// Ocultar carrito cuando el mouse se aleja
 cartContainer.addEventListener("mouseleave", () => {
     cartDropdown.style.display = "none";
 });
 
 
 //2
+// Elementos del DOM del formulario
 const formBook = document.getElementById("form-book");
 const cardsContainer = document.querySelector(".cards-container"); 
-
+// Evento submit del formulario
 formBook.addEventListener("submit", function(e) {
     e.preventDefault();
-
+    // Captura de valores ingresados
     const name = document.getElementById("name").value;
     const author = document.getElementById("author").value;
     const type = document.getElementById("type").value;
@@ -103,7 +108,7 @@ formBook.addEventListener("submit", function(e) {
    //Se crea la card nueva 
     const newCard = document.createElement("article");
     newCard.classList.add("card");
-
+    // para que la card tenga la estructura HTML 
     newCard.innerHTML = `
     <img src="${image}" alt="${name}">
     <div class="card-content">
@@ -118,9 +123,9 @@ formBook.addEventListener("submit", function(e) {
         <button class="btn-add">Add to My Library</button>
     </div>
 `;
-
+    // nueva card al contenedor principal
     cardsContainer.appendChild(newCard);
-
+    // Se activa el botón de añadir de la nueva card
     const newButton = newCard.querySelector(".btn-add");
     newButton.addEventListener("click", () => {
         addToCart(newCard);
