@@ -1,0 +1,256 @@
+/*General*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/*Header*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+  top: 0;
+  width: 100%;
+  z-index: 1000; 
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+header img {
+  height: 40px;
+  width: auto;
+}
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+h3 {
+  font-size: 20px;
+  font-style: italic;
+  color: #a08bb6
+}
+
+/*Company info*/
+.welcome-section {
+  background-color: #e0e0e0;
+  background-size: cover;
+  background-position: left;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 15px
+}
+.welcome-section .welcome-image {
+  max-width: 80%;
+  height: auto;
+
+}
+.welcome-section h2 {
+  color: #272727;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.welcome-section p{
+  color: #272727;
+  font-size: 18px
+}
+
+/*book-selection*/
+.book-selection h3{
+  font-style: italic;
+  color: #272727;
+  margin: 20px 15px;
+}
+/*Cards*/
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 15px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 273px;
+  background-color: #e6e6e696;
+  border-radius: 8px;
+  padding: 15px;
+}
+.card img {
+  height: 210px;
+  width: auto;
+  margin: 0 auto; 
+  display: block;
+  border-radius: 6px;
+}
+.card-content {
+  margin-top: 5px;
+  padding-top: 5px;
+  padding: 10px;
+}
+.card-title {
+  margin: auto;
+  font-size: 18px;
+}
+.card-attributes {
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0;
+  font-size: 14px;
+  color: #272727;
+}
+.card-price {
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: right;
+  color: #272727;
+}
+.btn-add {
+  background-color: #a08bb6;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/*Add book*/
+.add-book {
+  background-color: #c9c8c8;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+.adding-booky {
+  background-color: #f2f2f2;
+  padding: 35px 40px;
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.adding-booky h3 {
+  text-align: center;
+  color: #a08bb6;
+  margin-bottom: 25px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+#form-book {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#form-book label {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 3px;
+}
+#form-book input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+#form-book input:focus {
+  outline: none;
+  border-color: #a08bb6;
+  box-shadow: 0 0 0 2px rgba(160, 139, 182, 0.2);
+}
+#form-book button {
+  margin-top: 15px;
+  background-color: #a08bb6;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+#form-book button:hover {
+  background-color: #8e79a6;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+ .espaciado-grande {
+    margin-bottom: 50px; 
+  }
+  footer {
+  background-color: #a08bb6;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+footer p {
+  font-size: 13px;
+  text-align: center;
+}
+
+/* PinchiCarrito */
+.cart-dropdown {
+  display: none;
+  position: absolute;
+  top: 40px; 
+  right: 0;
+  background: white;
+  padding: 15px;
+  width: 300px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  z-index: 1000;
+}
+.cart-container{
+  position: relative;
+  display: inline-block;
+}
+.cart-container:hover .cart-dropdown {
+  display: block;
+}
+.cart-dropdown table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.cart-dropdown th {
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    padding: 5px;
+}
+.cart-dropdown td {
+    padding: 5px;
+}
+/* BotondelPinchiCarrito */
+#btn-empty {
+  background-color: #a08bb6;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+#btn-empty:hover {
+  background-color: #8e79a6;
+  transform: translateY(-2px);
+}
